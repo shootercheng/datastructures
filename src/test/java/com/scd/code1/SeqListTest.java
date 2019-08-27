@@ -26,7 +26,8 @@ public class SeqListTest {
         iList.add("2");
         iList.add("3");
         iList.add("4");
-        iList.insert(0, "0");
+        iList.insert(4, "0");
+        System.out.println(iList);
     }
 
     @Test
@@ -37,7 +38,8 @@ public class SeqListTest {
         iList.add("2");
         iList.add("3");
         iList.add("4");
-        Assert.assertEquals("0",iList.remove(0));
+        iList.get(4);
+        Assert.assertEquals("3",iList.remove(3));
         Assert.assertEquals(4, iList.size());
     }
 

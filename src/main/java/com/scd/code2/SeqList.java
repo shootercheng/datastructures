@@ -43,7 +43,7 @@ public class SeqList<E> implements IList<E>{
 
     @Override
     public E remove(int i) {
-        if (i < 0 || i > curLen){
+        if (i < 0 || i >= curLen){
             throw new LocationException("remove location error");
         }
         E e = (E) listElem[i];
@@ -57,8 +57,8 @@ public class SeqList<E> implements IList<E>{
 
     @Override
     public E get(int i) {
-        if (i < 0 || i > curLen){
-            throw new LocationException("get location error");
+        if (i < 0 || i >= curLen){
+            throw new OutOfSizeException("curLen is "+ i);
         }
         return (E) listElem[i];
     }
