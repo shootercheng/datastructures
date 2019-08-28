@@ -1,23 +1,20 @@
 package com.scd.code2.link;
 
 import com.scd.code2.IList;
+import com.scd.exception.OutOfSizeException;
 
 /**
  * 尾插法
  * @author chengdu
  * @date 2019/8/27.
  */
-public class LinkListTl<E> implements IList<E> {
-
-    private Node<E> head;
+public class LinkListTl<E> extends LinkList<E>  implements IList<E> {
 
     private Node<E> temp;
 
-    private int curLen;
-
     public LinkListTl(){
-        head = new Node<>();
-        temp = head;
+        super();
+        temp = super.getHead();
     }
 
     @Override
@@ -25,46 +22,47 @@ public class LinkListTl<E> implements IList<E> {
         Node<E> node = new Node<>(e);
         temp.next = node;
         temp = node;
-        curLen++;
+        addCurLen();
     }
 
     @Override
     public void insert(int i, E e) {
-
+        super.insert(i, e);
     }
 
     @Override
     public E remove(int i) {
-        return null;
+        return super.remove(i);
     }
 
     @Override
     public E get(int i) {
-        return null;
+        return super.get(i);
     }
 
     @Override
     public int indexOf(E e) {
-        return 0;
+        return super.indexOf(e);
     }
 
     @Override
     public int size() {
-        return 0;
+        return super.size();
     }
 
     @Override
     public void clear() {
-
+        super.setHead(null);
+        temp = null;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return super.isEmpty();
     }
 
     @Override
     public void display() {
-
+        super.display();
     }
 }

@@ -63,6 +63,7 @@ public class LinkListTest {
         IList<String> linkList = createList();
         linkList.insert(0, "1");
         linkList.insert(2, "2");
+        linkList.insert(linkList.size() - 1, "3");
         try {
             linkList.insert(linkList.size(), "3");
             Assert.fail("bug----------");

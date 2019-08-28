@@ -7,7 +7,7 @@ import com.scd.exception.OutOfSizeException;
  * @author chengdu
  * @date 2019/8/26.
  */
-public class LinkList<E> implements IList<E> {
+public class LinkList<E>  implements IList<E> {
 
     private Node<E> head;
 
@@ -29,7 +29,7 @@ public class LinkList<E> implements IList<E> {
 
     @Override
     public void insert(int i, E e) {
-        if (i < 0|| i >= curLen){
+        if (i < 0|| i > curLen){
             throw new OutOfSizeException("index "+ i +" out of size");
         }
         Node node = new Node(e);
@@ -108,11 +108,12 @@ public class LinkList<E> implements IList<E> {
     @Override
     public void clear() {
         head = null;
+        curLen = 0;
     }
 
     @Override
     public boolean isEmpty() {
-        return head == null || head.e == null;
+        return head == null;
     }
 
     @Override
@@ -122,5 +123,25 @@ public class LinkList<E> implements IList<E> {
             System.out.println(curNode.e);
             curNode = curNode.next;
         }
+    }
+
+    public Node<E> getHead() {
+        return head;
+    }
+
+    public void setHead(Node<E> head) {
+        this.head = head;
+    }
+
+    public void addCurLen(){
+        curLen++;
+    }
+
+    public int getCurLen() {
+        return curLen;
+    }
+
+    public void setCurLen(int curLen) {
+        this.curLen = curLen;
     }
 }
