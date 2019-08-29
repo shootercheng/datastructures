@@ -1,4 +1,4 @@
-package com.scd.code1;
+package com.scd.code2;
 
 import com.scd.code2.IList;
 import com.scd.code2.SeqList;

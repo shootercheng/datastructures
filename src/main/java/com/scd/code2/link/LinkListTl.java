@@ -1,7 +1,6 @@
 package com.scd.code2.link;
 
 import com.scd.code2.IList;
-import com.scd.exception.OutOfSizeException;
 
 /**
  * 尾插法
@@ -22,7 +21,7 @@ public class LinkListTl<E> extends LinkList<E>  implements IList<E> {
         Node<E> node = new Node<>(e);
         temp.next = node;
         temp = node;
-        addCurLen();
+        super.addCurLen();
     }
 
     @Override

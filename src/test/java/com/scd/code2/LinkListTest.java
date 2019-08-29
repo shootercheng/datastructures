@@ -1,4 +1,4 @@
-package com.scd.code1;
+package com.scd.code2;
 
 import com.scd.code2.IList;
 import com.scd.code2.link.LinkList;
@@ -64,12 +64,7 @@ public class LinkListTest {
         linkList.insert(0, "1");
         linkList.insert(2, "2");
         linkList.insert(linkList.size() - 1, "3");
-        try {
-            linkList.insert(linkList.size(), "3");
-            Assert.fail("bug----------");
-        } catch (Exception e){
-            Assert.assertEquals("index " + linkList.size() + " out of size", e.getMessage());
-        }
+        linkList.insert(linkList.size(), "3");
     }
 
     @Test
