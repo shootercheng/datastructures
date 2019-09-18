@@ -54,9 +54,7 @@ public class StrMathExpression {
                 }
             } else if (isOperator(c)) {
                 // 比较运算符的优先级
-                if (stack.isEmpty()) {
-                    stack.push(c);
-                } else {
+                if (!stack.isEmpty()) {
                     int curPriority = operatorPriority.get(c);
                     while (true) {
                         if (stack.isEmpty()) {
@@ -69,8 +67,8 @@ public class StrMathExpression {
                         }
                         postFixList.add(stack.pop());
                     }
-                    stack.push(c);
                 }
+                stack.push(c);
             }
         }
         while (!stack.isEmpty()) {
