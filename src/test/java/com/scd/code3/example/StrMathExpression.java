@@ -141,6 +141,8 @@ public class StrMathExpression {
                 if (i == 0 || "(".equals(inputList.get(i-1))) {
                     convertlist.add(str + inputList.get(i+1));
                     i++;
+                } else {
+                    convertlist.add(str);
                 }
             } else {
                 convertlist.add(str);
@@ -158,7 +160,7 @@ public class StrMathExpression {
         String input2 = "(-2)*(-3)";
         String input3 = "(-2 * 3) - 4";
         String input4 = "-2.1 * 3+4";
-        System.out.println(convertInputList(input2));
+        System.out.println(convertInputList(input3));
         System.out.println(Math.pow(-2, 3));
         String exp1 = "-2^3";
         String exp2 = "-2";
