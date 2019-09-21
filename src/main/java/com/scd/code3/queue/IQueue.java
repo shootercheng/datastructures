@@ -17,4 +17,6 @@ public interface IQueue<E> {
     void offer(E e) throws Exception;
 
     E poll();
+
+    void disPlay();
 }
