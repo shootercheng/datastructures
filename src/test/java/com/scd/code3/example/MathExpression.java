@@ -135,6 +135,5 @@ public class MathExpression {
         // (-2) * (-3)
         String res = convertToPostfix(input);
         System.out.println("postfix: " +res);
-//        System.out.println("result: " + calExp(res));
     }
 }
