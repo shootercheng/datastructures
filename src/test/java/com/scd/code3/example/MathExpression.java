@@ -124,9 +124,9 @@ public class MathExpression {
     }
 
     public static void main(String[] args){
-//        String input = "(A+B) * (C-D) / E^F + G % H";
+        String input = "(A+B) * (C-D) / E^F + G % H";
 //        String input = "-2";
-        String input = "1";
+//        String input = "1";
         // 1*2+3        // 12*3+
         // 1*2*3+4      // 12*3*4+
         // 1+2*3/4      // 123*4/+
@@ -135,6 +135,6 @@ public class MathExpression {
         // (-2) * (-3)
         String res = convertToPostfix(input);
         System.out.println("postfix: " +res);
-        System.out.println("result: " + calExp(res));
+//        System.out.println("result: " + calExp(res));
     }
 }
