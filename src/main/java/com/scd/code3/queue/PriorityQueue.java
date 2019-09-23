@@ -22,13 +22,10 @@ public class PriorityQueue<E> implements IQueue<E> {
 
     @Override
     public int length() {
-        if (front == null) {
-            return 0;
-        }
-        Node node = front;
+        Node p = front;
         int length = 0;
-        while (node != null) {
-            node = node.next;
+        while (p != null) {
+            p = p.next;
             length++;
         }
         return length;
@@ -38,30 +35,61 @@ public class PriorityQueue<E> implements IQueue<E> {
     public E peek() {
         if (front == null) {
             return null;
+        } else {
+            return front.e;
         }
-        return front.e;
     }
 
     @Override
     public void offer(E e) throws Exception {
+        if(!(e instanceof PriorityData)) {
+            throw new RuntimeException("not prioritydata");
+        }
+        Node<E> node = new Node<>(e);
+        if (front == null) {
+            front = rear = node;
+        } else {
+            Node<E> p = front,q = front;
+            PriorityData priorityData = (PriorityData) e;
+            // 寻找插入节点位置
+            while ( p != null && priorityData.priority <= ((PriorityData) p.e).priority) {
+                q = p;
+                p = p.next;
+            }
+            // node 优先级非常大
+            if (p == null) {
+                rear.next = node;
+                rear = node;
+            } else if (p == front) {
+                // node 优先级非常小， 插入队首
+                node.next = front;
+                front = node;
+            } else {
+                // node 优先级位于 p,q 之间
+                q.next = node;
+                node.next = p;
+            }
 
+        }
     }
 
     @Override
     public E poll() {
         if (front == null) {
             return null;
+        } else {
+            Node<E> node = front;
+            front = front.next;
+            return node.e;
         }
-        Node<E> node = front;
-        front = node.next;
-        if (node == rear) {
-            rear = null;
-        }
-        return node.e;
     }
 
     @Override
     public void disPlay() {
-
+        Node p = front;
+        while (p != null) {
+            p = p.next;
+            System.out.println(p.e);
+        }
     }
 }
