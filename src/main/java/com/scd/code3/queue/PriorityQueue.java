@@ -56,12 +56,12 @@ public class PriorityQueue<E> implements IQueue<E> {
                 q = p;
                 p = p.next;
             }
-            // node 优先级非常大
+            // node 优先级非常小, 插入队尾
             if (p == null) {
                 rear.next = node;
                 rear = node;
             } else if (p == front) {
-                // node 优先级非常小， 插入队首
+                // node 优先级非常大， 插入队首
                 node.next = front;
                 front = node;
             } else {
