@@ -80,10 +80,8 @@ public class CircleSqQueue<E> implements IQueue<E> {
                 for (int i = front; i < maxSize; i++) {
                     System.out.println(elements[i]);
                 }
-                if (front >= 1) {
-                    for (int i = front - 1; i >= 0; i--) {
-                        System.out.println(elements[i]);
-                    }
+                for (int i = 0; i < front; i++) {
+                    System.out.println(elements[i]);
                 }
             } else {
                 System.out.println("queue is empty");

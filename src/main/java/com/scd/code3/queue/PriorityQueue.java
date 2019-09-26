@@ -1,5 +1,7 @@
 package com.scd.code3.queue;
 
+import com.scd.code3.Node;
+
 /**
  * @author James Chen
  * @date 22/09/19

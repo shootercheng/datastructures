@@ -1,4 +1,4 @@
-package com.scd.code3;
+package com.scd.code3.stack;
 
 import com.scd.code3.stack.SqStack;
 import org.junit.Assert;

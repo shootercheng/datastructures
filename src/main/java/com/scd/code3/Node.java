@@ -1,4 +1,4 @@
-package com.scd.code3.queue;
+package com.scd.code3;
 
 /**
  * @author chengdu
@@ -6,9 +6,9 @@ package com.scd.code3.queue;
  */
 public class Node<E> {
 
-    protected E e;
+    public E e;
 
-    protected Node next;
+    public Node next;
 
     public Node(){
     }

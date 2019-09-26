@@ -79,6 +79,8 @@ public class QueueTest {
         Assert.assertEquals("A", circleSqQueue.poll());
         circleSqQueue.offer("G");
         Assert.assertEquals("B", circleSqQueue.peek());
+        Assert.assertEquals("B",circleSqQueue.poll());
+        circleSqQueue.offer("H");
         circleSqQueue.disPlay();
 
     }
