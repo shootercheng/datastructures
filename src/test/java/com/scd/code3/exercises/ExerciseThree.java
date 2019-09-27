@@ -1,7 +1,5 @@
 package com.scd.code3.exercises;
 
-import com.scd.code3.stack.IStack;
-
 /**
  * @author James Chen
  * @date 26/09/19

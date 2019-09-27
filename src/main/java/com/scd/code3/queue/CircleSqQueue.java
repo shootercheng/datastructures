@@ -64,6 +64,7 @@ public class CircleSqQueue<E> implements IQueue<E> {
     @Override
     public E poll() {
         E e = (E) elements[front];
+        elements[front] = null;
         front = (front + 1) % maxSize;
         flag = 0;
         return e;
@@ -71,21 +72,22 @@ public class CircleSqQueue<E> implements IQueue<E> {
 
     @Override
     public void disPlay() {
-        if (front != rear) {
+        StringBuilder stringBuilder = new StringBuilder("");
+        if (front < rear) {
             for (int i = front; i < rear; i++) {
-                System.out.println(elements[i]);
+                stringBuilder.append(elements[i]).append(" ");
             }
         } else {
-            if (flag == 1) {
-                for (int i = front; i < maxSize; i++) {
-                    System.out.println(elements[i]);
-                }
-                for (int i = 0; i < front; i++) {
-                    System.out.println(elements[i]);
-                }
-            } else {
-                System.out.println("queue is empty");
+            // front == rear || front > rear
+            // front --> maxSize
+            for (int i = front; i < maxSize; i++) {
+                stringBuilder.append(elements[i]).append(" ");
+            }
+            // 0 --> rear
+            for (int i = 0; i < rear; i++) {
+                stringBuilder.append(elements[i]).append(" ");
             }
         }
+        System.out.println(stringBuilder.toString().trim());
     }
 }

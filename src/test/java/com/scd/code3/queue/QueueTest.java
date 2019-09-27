@@ -75,13 +75,16 @@ public class QueueTest {
         circleSqQueue.offer("C");
         circleSqQueue.offer("D");
         circleSqQueue.offer("E");
-        circleSqQueue.offer("F");
-        Assert.assertEquals("A", circleSqQueue.poll());
-        circleSqQueue.offer("G");
-        Assert.assertEquals("B", circleSqQueue.peek());
-        Assert.assertEquals("B",circleSqQueue.poll());
-        circleSqQueue.offer("H");
+        // front < rear
         circleSqQueue.disPlay();
-
+        // front == rear
+        circleSqQueue.offer("F");
+        circleSqQueue.disPlay();
+        // front > rear
+        Assert.assertEquals("A", circleSqQueue.poll());
+        circleSqQueue.disPlay();
+        Assert.assertEquals("B", circleSqQueue.poll());
+        circleSqQueue.offer("G");
+        circleSqQueue.disPlay();
     }
 }
