@@ -3,6 +3,9 @@ package com.scd.code3.exercises;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author James Chen
  * @date 27/09/19
@@ -15,5 +18,7 @@ public class TenToNTest {
         Assert.assertEquals("10", result);
         Assert.assertEquals("101", TenToN.convertToN(5, 2));
         Assert.assertEquals("110", TenToN.convertToN(6, 2));
+
+        List<String> stringList = new ArrayList<>();
     }
 }
