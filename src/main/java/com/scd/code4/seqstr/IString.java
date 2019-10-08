@@ -24,7 +24,7 @@ public interface IString {
 
     int compareTo(IString str);
 
-    int indexOf(String str, int length);
+    int indexOf(String str, int begin);
 
     char[] getCharArr();
 }
