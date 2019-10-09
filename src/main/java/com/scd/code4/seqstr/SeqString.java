@@ -135,16 +135,23 @@ public class SeqString implements IString {
             throw new RuntimeException("location is error");
         }
         char[] findArr = str.toCharArray();
-        int index = -1;
+        int index;
         for (int i = begin; i < curLen - str.length(); i++) {
             if (findArr[0] == strValue[i]) {
                 index = i;
-                break;
+                if (isNotMatch(index, findArr)) {
+                    continue;
+                }
+                return index;
             }
         }
+        return -1;
+    }
+
+    private boolean isNotMatch(int index, char[] findArr) {
         boolean notFind = false;
         for (int i = 1; i < findArr.length; i++) {
-            if (index + i > curLen) {
+            if (index + i > curLen - 1) {
                 notFind = true;
                 break;
             }
@@ -153,10 +160,7 @@ public class SeqString implements IString {
                 break;
             }
         }
-        if (notFind) {
-            return -1;
-        }
-        return index;
+        return notFind;
     }
 
     @Override

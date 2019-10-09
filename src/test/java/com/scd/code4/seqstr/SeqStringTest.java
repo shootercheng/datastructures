@@ -77,5 +77,8 @@ public class SeqStringTest {
     public void testIndexOf() {
         IString istr1 = new SeqString("Java!");
         Assert.assertEquals(1, istr1.indexOf("a", 0));
+        Assert.assertEquals(11, "JamesJacdsdJavaccdd".indexOf("Java"));
+        IString istr2 = new SeqString("JamesJacdsdJavaccdd");
+        Assert.assertEquals(11, istr2.indexOf("Java", 0));
     }
 }
