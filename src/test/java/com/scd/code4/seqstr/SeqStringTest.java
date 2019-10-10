@@ -80,5 +80,7 @@ public class SeqStringTest {
         Assert.assertEquals(11, "JamesJacdsdJavaccdd".indexOf("Java"));
         IString istr2 = new SeqString("JamesJacdsdJavaccdd");
         Assert.assertEquals(11, istr2.indexOf("Java", 0));
+        IString istr3 = new SeqString("Javas");
+        Assert.assertEquals(4, istr3.indexOf("s", 0));
     }
 }

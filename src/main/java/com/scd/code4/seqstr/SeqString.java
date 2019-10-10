@@ -12,8 +12,6 @@ public class SeqString implements IString {
 
     private int curLen;
 
-    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;
-
     public SeqString() {
         strValue = new char[0];
         curLen = 0;
@@ -136,7 +134,7 @@ public class SeqString implements IString {
         }
         char[] findArr = str.toCharArray();
         int index;
-        for (int i = begin; i < curLen - str.length(); i++) {
+        for (int i = begin; i < curLen; i++) {
             if (findArr[0] == strValue[i]) {
                 index = i;
                 if (isNotMatch(index, findArr)) {
