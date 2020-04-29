@@ -47,7 +47,7 @@ public class LinkQueue<E> implements IQueue<E> {
     }
 
     @Override
-    public void offer(E e) throws Exception {
+    public void offer(E e) {
         Node<E> node = new Node<>(e);
         if (front == null) {
             front = rear = node;
