@@ -39,7 +39,7 @@ public class StrMathExpression {
         Stack<String> stack = new Stack<>();
         List<String> postFixList = new ArrayList<>(inputList.size());
         for (String c : inputList) {
-            if (" ".equals(c)){
+            if (c.trim().length() == 0){
                 continue;
             }
             if (!isOperator(c)) {
@@ -77,7 +77,7 @@ public class StrMathExpression {
         return postFixList;
     }
 
-    private static double calExp(List<String> postfixExp) {
+    public static double calExp(List<String> postfixExp) {
         Stack<Double> stack = new Stack<>();
         for (String c : postfixExp) {
             if (!isOperator(c)) {
@@ -138,7 +138,10 @@ public class StrMathExpression {
         for (int i = 0; i < inputList.size(); i++) {
             String str = inputList.get(i);
             if ("-".equals(str)) {
-                if (i == 0 || "(".equals(inputList.get(i-1))) {
+                // 1.负号在表达式最前面
+                // 2.负号前面是左括号
+                // 3.负号前面是操作符
+                if (i == 0 || "(".equals(inputList.get(i-1)) || operatorPriority.containsKey(inputList.get(i-1))) {
                     convertlist.add(str + inputList.get(i+1));
                     i++;
                 } else {

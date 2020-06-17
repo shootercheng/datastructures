@@ -9,6 +9,7 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Queue;
+import java.util.StringJoiner;
 
 /**
  * @author James
@@ -137,7 +138,11 @@ public class Matrix {
         directNetWork.addEdge("v5", "v6", 60);
         directNetWork.addEdge("v5", "v4", 20);
         int[] distance = directNetWork.dijkstra(0);
-        DijkstraVO dijkstraVO = directNetWork.dijkstraWithShortPath(0);
+        DijkstraVO dijkstraVO = directNetWork.dijkstraWithShortPath("v1");
+        showGraphDis(dijkstraVO);
+    }
+
+    private void showGraphDis(DijkstraVO dijkstraVO) {
         int[] dis = dijkstraVO.getDistance();
         StringBuilder[] shortPaths = dijkstraVO.getShortPaths();
         for (int i = 0; i < dis.length; i++) {
@@ -146,6 +151,52 @@ public class Matrix {
             }
             System.out.println(shortPaths[i] + "  " + dis[i]);
         }
-        System.out.println(distance);
+        StringJoiner stringJoiner = new StringJoiner(",");
+        for (int di : dis) {
+            stringJoiner.add(String.valueOf(di));
+        }
+        System.out.println(stringJoiner);
+    }
+
+    @Test
+    public void testDisEqual() {
+        DirectedNetwork directNetWork = new DirectedNetwork();
+        directNetWork.createGraph("v1,v2,v3,v4");
+        directNetWork.addEdge("v1", "v2", 1);
+        directNetWork.addEdge("v1", "v3", 1);
+        directNetWork.addEdge("v2", "v4", 1);
+        directNetWork.addEdge("v3", "v4", 1);
+        directNetWork.addEdge("v1", "v4", 2);
+        DijkstraVO dijkstraVO = directNetWork.dijkstraWithShortPath("v1");
+        showGraphDis(dijkstraVO);
+    }
+
+    @Test
+    public void testEqualDijkstrWithMany() {
+        DirectedNetwork directNetWork = new DirectedNetwork();
+        directNetWork.createGraph("v1,v2,v3,v4");
+        directNetWork.addEdge("v1", "v2", 1);
+        directNetWork.addEdge("v1", "v3", 1);
+        directNetWork.addEdge("v2", "v4", 1);
+        directNetWork.addEdge("v3", "v4", 1);
+        directNetWork.addEdge("v1", "v4", 2);
+        DijkstraVO dijkstraVO = directNetWork.dijkstraWithManyShortPath("v1");
+        showGraphDis(dijkstraVO);
+    }
+
+    @Test
+    public void testDijkstrWithMany() {
+        DirectedNetwork directNetWork = new DirectedNetwork();
+        directNetWork.createGraph("v1,v2,v3,v4,v5,v6");
+        directNetWork.addEdge("v1", "v3", 10);
+        directNetWork.addEdge("v1", "v5", 30);
+        directNetWork.addEdge("v1", "v6", 100);
+        directNetWork.addEdge("v2", "v3", 5);
+        directNetWork.addEdge("v3", "v4", 50);
+        directNetWork.addEdge("v4", "v6", 10);
+        directNetWork.addEdge("v5", "v6", 60);
+        directNetWork.addEdge("v5", "v4", 20);
+        DijkstraVO dijkstraVO = directNetWork.dijkstraWithManyShortPath("v1");
+        showGraphDis(dijkstraVO);
     }
 }
